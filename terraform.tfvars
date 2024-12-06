@@ -1,0 +1,13 @@
+aws_region = "us-east-1" //AWS region where function needs to create
+event_bridge_policy_name = "EventBridgreScheduler_policy" //IAM policy name for lamda execution role
+event_bridge_scheduler_role_name = "EventBridgreScheduler_role" //IAM policy name for eventbridge scheduler role
+flexible_time_window = "OFF" //FlexiBle time window for scheduler to run cron job [OFF in case of disable]
+handler = "index.lambda_handler" //Entry point for lambda function i.e def handler (event,context)
+lambda_execution_policy_name = "LambdaExecutionPolicy" //IAM policy name for lamda execution role
+lambda_execution_role_name = "LambdaExecutionRole" //IAM role for lambda execution role
+lambda_function_name = "DailyBillMail" //Lambda function name
+lambda_zip_filename = "lambda_function.zip" //Source file or ZIP file for lamda function
+runtime_version = "python3.13" //Runtime version for lambda function I.e Python version
+schedule_expression_timezone = "Asia/Calcutta" //TimeZone for which cronjob needs to be run I.e Asia/Calcutta
+scheduler_cron_expression = "cron(10 17 * * ? *)" //Cron expression for scheduler. Enter cron expression in form of 'Minute Hour DayOfMonth Month DayOfWeek Year' I.e: cron(* 17 * * ? *)
+scheduler_name = "DailyCostMail" //Event Bridge scheduler Name
