@@ -1,3 +1,4 @@
+// This file is for IAM policies used during lambda file creation.
 resource "aws_iam_policy" "AWSLambdaBasicExecutionRole_Terraform" {
   name   = var.lambda_execution_policy_name
   policy = <<EOF
