@@ -1,15 +1,20 @@
 import boto3
 import datetime
 
-ce = boto3.client('ce', region_name='ap-south-1')
-ses = boto3.client('ses', region_name='ap-south-1')
+# Vriables for email source and destination and region
+source_email = 'cloudopsjeavio@gmail.com'
+destination_emails = ['vishal.mokani@jeavio.com']
+region_name = 'us-east-1'
+
+ce = boto3.client('ce', region_name)
+ses = boto3.client('ses', region_name)
 
 def send_email(to_email, subject, body):
     try:
         # Send email
         response = ses.send_email(
-            Source='cloudopsjeavio@gmail.com',
-            Destination={'ToAddresses': ['vishal.mokani@jeavio.com']},
+            Source= source_email,
+            Destination={'ToAddresses': destination_emails},
             Message={
                 'Subject': {'Data': subject},
                 'Body': {
@@ -189,7 +194,7 @@ def lambda_handler(event, context):
         )
 
         # Send email
-        if send_email('cloudopsjeavio@gmail.com', subject, body):
+        if send_email(source_email, subject, body):
             return {
                 'statusCode': 200,
                 'body': 'Email sent successfully!'
