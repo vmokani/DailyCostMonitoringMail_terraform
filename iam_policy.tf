@@ -17,7 +17,7 @@ resource "aws_iam_policy" "AWSLambdaBasicExecutionRole_Terraform" {
                 "logs:PutLogEvents"
             ],
             "Resource": [
-                "*"
+                "aws_iam_policy"
             ]
         }
     ]
@@ -37,7 +37,7 @@ resource "aws_iam_policy" "Amazon_EventBridge_Scheduler_LAMBDA_Terraform" {
                 "lambda:InvokeFunction"
             ],
             "Resource": [
-                "*"
+                "aws_iam_policy"
             ]
         }
     ]
